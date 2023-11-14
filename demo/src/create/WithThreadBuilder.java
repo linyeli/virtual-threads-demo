@@ -19,15 +19,15 @@ public class WithThreadBuilder {
     public static void createTwo() throws InterruptedException {
         Thread.Builder builder = Thread.ofVirtual().name("virtual-thread-", 0);
         Runnable task = ()->{
-          System.out.println("this is task thread: " + Thread.currentThread().getName() + "running...");
+          System.out.println("this is task thread: " + Thread.currentThread().getName() + " running...");
         };
         // name: virtual-thread-0
         Thread thread1 = builder.start(task);
         thread1.join();
-        System.out.println(thread1.getName() + "terminated");
+        System.out.println(thread1.getName() + " terminated");
         // name: virtual-thread-1
         Thread thread2 = builder.start(task);
         thread2.join();
-        System.out.println(thread2.getName() + "terminated");
+        System.out.println(thread2.getName() + " terminated");
     }
 }
